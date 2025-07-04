@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmn7r63svrt85"]
+
+[ext_resource type="PackedScene" uid="uid://dj2lxfdekcwfc" path="res://items/interactables/pickuppable_template.tscn" id="1_rh6ld"]
+[ext_resource type="PackedScene" uid="uid://b8raleoc3rgbd" path="res://Assets/meshes/stick.tscn" id="2_oroqu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xyvby"]
+height = 0.710907
+radius = 0.0610352
+
+[node name="PickuppableStick" instance=ExtResource("1_rh6ld")]
+
+[node name="Pickuppable" parent="." index="0"]
+prompt = "Pickup stick"
+
+[node name="CollisionShape3D" parent="Pickuppable" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.0481698, 0.998839, 0, -0.998839, -0.0481698, -0.0101948, -0.00611516, -0.0337406)
+shape = SubResource("CylinderShape3D_xyvby")
+
+[node name="Stick" parent="." index="1" instance=ExtResource("2_oroqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00956988, 1.19209e-07, -0.017518)

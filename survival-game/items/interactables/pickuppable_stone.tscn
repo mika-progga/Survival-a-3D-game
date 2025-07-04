@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vbnqxdn0uogi"]
+
+[ext_resource type="PackedScene" uid="uid://dj2lxfdekcwfc" path="res://items/interactables/pickuppable_template.tscn" id="1_rh6ld"]
+[ext_resource type="PackedScene" uid="uid://kdgqj32q7152" path="res://Assets/meshes/stone.tscn" id="2_oroqu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xyvby"]
+radius = 0.178833
+
+[node name="PickuppableStone" instance=ExtResource("1_rh6ld")]
+
+[node name="Pickuppable" parent="." index="0"]
+item_key = 1
+prompt = "Pickup stone"
+
+[node name="CollisionShape3D" parent="Pickuppable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00851122, 0, 0)
+shape = SubResource("SphereShape3D_xyvby")
+
+[node name="Stone" parent="." index="1" instance=ExtResource("2_oroqu")]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvu8cvui0gb61"]
+
+[ext_resource type="Script" uid="uid://c7oj5sw7xblml" path="res://Assets/actor/player/player.gd" id="1_a3xfs"]
+[ext_resource type="Script" uid="uid://det0o5gjtfasg" path="res://Assets/actor/player/interaction_ray_cast.gd" id="2_an1jd"]
+[ext_resource type="Script" uid="uid://bb1nbbqd3qx6p" path="res://Assets/game/managers/inventory_manager.gd" id="3_v2jxt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3e0bc"]
+radius = 0.25
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_a3xfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3e0bc")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729442, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Head"]
+transform = Transform3D(0.999607, 0, 0.0280438, 0, 1, 0, -0.0280438, 0, 0.999607, 0, 0, -1)
+target_position = Vector3(0, 0, -2)
+collision_mask = 4
+collide_with_areas = true
+script = ExtResource("2_an1jd")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="InventoryManager" type="Node" parent="Managers"]
+script = ExtResource("3_v2jxt")
